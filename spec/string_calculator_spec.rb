@@ -57,5 +57,16 @@ RSpec.describe StringCalculator do
         "1\n2,3\n4".extend(StringCalculator).add.should == 10
       end
     end
+
+    context "with other delimiters" do
+      it "returns the sum of 1 and 2 with a custom delimiter" do
+        "//;\n1;2".extend(StringCalculator).add.should == 3
+      end
+
+      it "returns the sum of 1, 2, and 3 with a custom delimiter" do
+        "//;\n1;2;3".extend(StringCalculator).add.should == 6
+      end
+    end
+
   end
 end
