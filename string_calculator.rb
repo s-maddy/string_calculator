@@ -5,6 +5,6 @@ module StringCalculator
   end
 
   def numbers
-    split(",").map(&:to_i)
+    gsub("\n", ',').split(",").map(&:to_i)
   end
 end
