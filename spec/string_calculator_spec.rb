@@ -43,5 +43,19 @@ RSpec.describe StringCalculator do
         "10,20,30,40,50".extend(StringCalculator).add.should == 150
       end
     end
+
+    context "with new lines" do
+      it "returns the sum of 1 and 2 with a new line" do
+        "1\n2".extend(StringCalculator).add.should == 3
+      end
+
+      it "returns the sum of 1, 2, and 3 with new lines" do
+        "1\n2,3".extend(StringCalculator).add.should == 6
+      end
+
+      it "returns the sum of 1, 2, 3, and 4 with new lines" do
+        "1\n2,3\n4".extend(StringCalculator).add.should == 10
+      end
+    end
   end
 end
