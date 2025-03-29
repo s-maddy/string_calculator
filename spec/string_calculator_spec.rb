@@ -68,5 +68,19 @@ RSpec.describe StringCalculator do
       end
     end
 
+    context "with negative numbers" do
+      it "raises an error for a negative number" do
+        expect { "-1".extend(StringCalculator).add }.to raise_error
+      end
+
+      it "raises an error for multiple negative numbers in message" do
+        expect { "1,-2".extend(StringCalculator).add }.to raise_error /negatives not allowed: -2/
+      end
+
+      it "raises an error for multiple negative numbers in message" do
+        expect { "1,-2,-3".extend(StringCalculator).add }.to raise_error /negatives not allowed: -2, -3/
+      end
+    end
+
   end
 end
