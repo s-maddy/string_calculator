@@ -6,12 +6,11 @@ module StringCalculator
   end
 
   def raise_negative_numbers_error
-    return if negative_numbers.empty?
-    raise "negatives not allowed: #{negative_numbers.join(', ')}"
+    raise "negatives not allowed: #{negative_numbers.join(', ')}" if negative_numbers.any?
   end
 
   def negative_numbers
-    numbers.select { |n| n < 0 }
+    @negative ||= numbers.select { |n| n < 0 }
   end
 
   def numbers
@@ -19,6 +18,6 @@ module StringCalculator
   end
 
   def delimiter
-    start_with?("//") ? self[2] : ','
+    @delimiter ||= start_with?("//") ? self[2] : ','
   end
 end
