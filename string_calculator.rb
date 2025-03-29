@@ -5,6 +5,10 @@ module StringCalculator
   end
 
   def numbers
-    gsub("\n", ',').split(",").map(&:to_i)
+    gsub("\n", delimiter).split(delimiter).map(&:to_i)
+  end
+
+  def delimiter
+    start_with?("//") ? self[2] : ','
   end
 end
