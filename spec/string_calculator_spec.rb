@@ -29,5 +29,19 @@ RSpec.describe StringCalculator do
         "100,200".extend(StringCalculator).add.should == 300
       end
     end
+
+    context "with multiple numbers" do
+      it "returns the sum of 1, 2, and 3" do
+        "1,2,3".extend(StringCalculator).add.should == 6
+      end
+
+      it "returns the sum of 10, 20, and 30" do
+        "10,20,30".extend(StringCalculator).add.should == 60
+      end
+
+      it "returns the sum of 10, 20, 30, 40, and 50" do
+        "10,20,30,40,50".extend(StringCalculator).add.should == 150
+      end
+    end
   end
 end
